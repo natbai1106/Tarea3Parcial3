@@ -224,12 +224,12 @@
                        CornerRadius="10" 
                        WidthRequest="340">
 
-                    <Picker 
+                    <Picker x:Name="PiPuesto"
                             Title="Seleccione Puesto"
                             FontSize="20"
                             ItemsSource="{Binding ListServices}"
                             ItemDisplayBinding="{Binding NombreServicio}"
-                            SelectedItem="{Binding ServiceSelected, Mode=TwoWay}"
+                            SelectedIndexChanged="PiPuesto_SelectedIndexChanged"
                             FontFamily="SansLight"
                             Margin="20,5"
                             HorizontalOptions="FillAndExpand" />
