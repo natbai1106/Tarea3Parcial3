@@ -45,59 +45,14 @@
 
     <!-- MARGENES DE LA TARJETA BLANCA -->
     <StackLayout>
-    <StackLayout  Style="{StaticResource DsStackLayout}">
-        
-            <!-- SCROLLVIEW DE LA TARJETA -->
+
+        <!-- SCROLLVIEW DE LA TARJETA -->
             <ScrollView>
 
                 <!-- CONTENEDORES DE LOS ENTRY -->
                 <StackLayout
-                        Margin="5">
+                        Style="{StaticResource DsStackLayout}">
 
-                    <StackLayout 
-                        Orientation="Horizontal" 
-                        HorizontalOptions="Center">
-
-
-                        <Frame 
-                            CornerRadius="95" 
-                            HeightRequest="190"
-                            WidthRequest="190"
-                            HorizontalOptions="FillAndExpand"
-                            Padding="0"
-                            VerticalOptions="FillAndExpand"
-                            Margin="1">
-
-                            <!--<ff:CachedImage x:Name           = "Logo" 
-                                Source               = "{Binding UrlPhoto}"
-                                LoadingPlaceholder   = "Logo"
-                                ErrorPlaceholder     = "Error"
-                                CacheDuration        = "30"
-                                RetryCount           = "5"
-                                RetryDelay           = "450"
-                                DownsampleToViewSize = "true">
-
-                            <ff:CachedImage.Transformations>
-                                <ffTrans:CircleTransformation />
-                            </ff:CachedImage.Transformations>
-                        </ff:CachedImage>-->
-
-                    </Frame>
-
-                        <Frame  BackgroundColor="Transparent" 
-                        Margin="-95,20,-50,-30" 
-                        HasShadow="false" 
-                        VerticalOptions="End">
-
-                            <Button Style="{StaticResource DsButtonFlotante}"   
-                              
-                                ImageSource="new_foto.png"
-                                Command="{Binding SelectMedia}"
-                               x:Name="btnFotosUsuario"
-                               />
-                    </Frame>
-
-                </StackLayout>
 
                     <!-- CAMPO OBLIGATORIO DE ASTERISCO - NOMBRE -->
                     <StackLayout 
@@ -125,11 +80,11 @@
                      
                      HorizontalOptions="FillAndExpand">
                     <!-- ENTRY NOMBRE -->
-                    <Entry x:Name="EntryNombre"
+                    <Entry 
                         Margin="25,5"
                         Keyboard="Plain"
                         Text="{Binding Name, Mode=TwoWay}"
-                               FontFamily="SansLight"
+                        FontFamily="SansLight"
                         FontSize="20"
                         PlaceholderColor="Gray" 
                         TextColor="black" 
@@ -137,90 +92,61 @@
                                />
                 </Frame>
 
+                <!-- CAMPO OBLIGATORIO DE ASTERISCO - NOMBRE -->
                 <StackLayout 
-                        Orientation="Horizontal"
-                        Margin="0,15,0,0">
-                    <!-- LABEL DE ASTERISCO - APELLIDO -->
-                        <Label Style="{StaticResource Dslabel*}"/>
+                            Orientation="Horizontal"
+                            Margin="0,5,0,0">
 
-                        <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
+                    <!-- LABEL DE ASTERISCO - NOMBRE -->
+                    <!-- INICIO DEL LABEL ASTERISCO -->
+                    <Label Style="{StaticResource Dslabel*}"/>
+
+                    <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
                     <Label 
+                            Text="Apellido: "
                             FontSize="20"
                             TextColor="Black"
-                            FontFamily="SansBold"
-                            Text="Ingrese Correo: " 
-                            />
-                    </StackLayout>
-
-                    <!-- ESTILOS DEL ENTRY CORREO -->
-                <Frame BackgroundColor="Transparent" 
-                     BorderColor="Black" 
-                     Padding="0"  
-                     CornerRadius="7" 
-                     WidthRequest="340"
-                     
-                     HorizontalOptions="FillAndExpand">
-                    <!-- ENTRY NOMBRE -->
-                    <Entry x:Name="EntryCorreo"
-                                 Margin="25,5"
-                                    FontSize="20"
-                                     Text="{Binding Mail, Mode=TwoWay}"
-                                    PlaceholderColor="Gray" 
-                                    TextColor="black" 
-                                    HorizontalOptions="FillAndExpand" >
-                    
-                    </Entry>
-                </Frame>
-
-
-                    <StackLayout  Margin="0,15,0,0"
-                        Orientation="Horizontal">
-
-                        <Label Style="{StaticResource Dslabel*}"/>
-
-                        <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
-                        <Label 
-                            FontSize="18"
-                            TextColor="Black"
-                            FontFamily="SansBold"
-                            Text="Verificar" 
-                            />
-                        <Label 
-                            Text="Teléfono "
-                            FontSize="15"    
-                            Margin="30,0,10,5"
                             FontFamily="SansBold"/>
+                </StackLayout>
 
-                        <Switch 
-                            x:Name="SwitchMapa"
-                              OnColor="gray"
-                              ThumbColor="#01ADBA"
-                           IsToggled="{Binding VerifyByMail,Mode=TwoWay}"/>
+                <!-- ESTILOS DEL ENTRY NOMBRE -->
+                <Frame BackgroundColor="Transparent" 
+                     BorderColor="Black" 
+                     Padding="0"  
+                     CornerRadius="7" 
+                     WidthRequest="340"
+                     
+                     HorizontalOptions="FillAndExpand">
+                    <!-- ENTRY NOMBRE -->
+                    <Entry 
+                        Margin="25,5"
+                        Keyboard="Plain"
+                        Text="{Binding Name, Mode=TwoWay}"
+                        FontFamily="SansLight"
+                        FontSize="20"
+                        PlaceholderColor="Gray" 
+                        TextColor="black" 
+                        HorizontalOptions="FillAndExpand"/>
+                </Frame>
 
-                        <Label 
-                            Text="Correo "
-                            FontSize="15"    
-                            Margin="30,0,10,5"
+                <!-- CAMPO OBLIGATORIO DE ASTERISCO - NOMBRE -->
+                <StackLayout 
+                            Orientation="Horizontal"
+                            Margin="0,5,0,0">
+
+                    <!-- LABEL DE ASTERISCO - NOMBRE -->
+                    <!-- INICIO DEL LABEL ASTERISCO -->
+                    <Label Style="{StaticResource Dslabel*}"/>
+
+                    <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
+                    <Label 
+                            Text="Edad: "
+                            FontSize="20"
+                            TextColor="Black"
                             FontFamily="SansBold"/>
-                    </StackLayout>
-                    
-                    
-                    <StackLayout 
-                        Orientation="Horizontal"
-                        Margin="0,15,0,0">
-                    <!-- LABEL DE ASTERISCO - APELLIDO -->
-                        <Label Style="{StaticResource Dslabel*}"/>
-                        <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
-                    <Label 
-                            FontSize="20"
-                            TextColor="Black"
-                            FontFamily="SansBold"
-                            Text="Ingrese Teléfono: "/>
-                    </StackLayout>
-                    <!-- ESTILOS DEL ENTRY TELEFONO -->
-                
+                </StackLayout>
 
-
+                <!-- ESTILOS DEL ENTRY NOMBRE -->
                 <Frame BackgroundColor="Transparent" 
                      BorderColor="Black" 
                      Padding="0"  
@@ -229,34 +155,35 @@
                      
                      HorizontalOptions="FillAndExpand">
                     <!-- ENTRY NOMBRE -->
-                    <Entry x:Name="EntryTelefono"
-                                 Margin="25,5"
-                                Keyboard="Telephone"
-                                Text="{Binding Telephone,Mode=TwoWay}"
-                               FontFamily="SansLight"
-                                FontSize="20"
-                                PlaceholderColor="Gray" 
-                                TextColor="black" 
-                                HorizontalOptions="FillAndExpand" >
-                     
-                    </Entry>
+                    <Entry 
+                        Margin="25,5"
+                        Keyboard="Numeric"
+                        Text="{Binding Name, Mode=TwoWay}"
+                        FontFamily="SansLight"
+                        FontSize="20"
+                        PlaceholderColor="Gray" 
+                        TextColor="black" 
+                        HorizontalOptions="FillAndExpand"/>
                 </Frame>
 
-
-                    <!-- CAMPO OBLIGATORIO DE ASTERISCO - INGRESAR USUA -->
+                <!-- CAMPO OBLIGATORIO DE ASTERISCO - NOMBRE -->
                 <StackLayout 
-                        Orientation="Horizontal"
-                        Margin="0,15,0,0">
-                    <!-- LABEL DE ASTERISCO - APELLIDO -->
-                        <Label Style="{StaticResource Dslabel*}"/>
+                            Orientation="Horizontal"
+                            Margin="0,5,0,0">
 
-                        <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
+                    <!-- LABEL DE ASTERISCO - NOMBRE -->
+                    <!-- INICIO DEL LABEL ASTERISCO -->
+                    <Label Style="{StaticResource Dslabel*}"/>
+
+                    <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
                     <Label 
+                            Text="Direccion: "
                             FontSize="20"
                             TextColor="Black"
-                            FontFamily="SansBold"
-                            Text="Ingrese Usuario: " />
-                    </StackLayout>
+                            FontFamily="SansBold"/>
+                </StackLayout>
+
+                <!-- ESTILOS DEL ENTRY NOMBRE -->
                 <Frame BackgroundColor="Transparent" 
                      BorderColor="Black" 
                      Padding="0"  
@@ -265,57 +192,54 @@
                      
                      HorizontalOptions="FillAndExpand">
                     <!-- ENTRY NOMBRE -->
-                    <Entry x:Name="EntryUsuario"
-                                 Margin="25,5"
-                                Keyboard="Plain"
-                                Text="{Binding User,Mode=TwoWay}"
-                               FontFamily="SansLight"
-                                FontSize="20"
-                                PlaceholderColor="Gray" 
-                                TextColor="black" 
-                                HorizontalOptions="FillAndExpand"  />
+                    <Entry 
+                        Margin="25,5"
+                        Keyboard="Plain"
+                        Text="{Binding Name, Mode=TwoWay}"
+                        FontFamily="SansLight"
+                        FontSize="20"
+                        PlaceholderColor="Gray" 
+                        TextColor="black" 
+                        HorizontalOptions="FillAndExpand"/>
                 </Frame>
 
-                <StackLayout 
-                        Orientation="Horizontal"
-                        Margin="0,15,0,0">
-                    <!-- LABEL DE ASTERISCO - APELLIDO -->
-                        <Label Style="{StaticResource Dslabel*}"/>
 
-                        <!-- INICIO DEL LABEL NOMBRE COMPLETO -->
-                    <Label 
-                            FontSize="20"
-                            TextColor="Black"
-                            FontFamily="SansBold"
-                            Text="Ingrese Contraseña: " />
-                    </StackLayout>
 
+                <!--Texto Servicio-->
+                <StackLayout Margin="0,10" Orientation="Horizontal">
+
+                    <Label Style="{StaticResource Dslabel*}"/>
+
+                    <Label TextColor="Black"
+                           Text="Puestos: "
+                           FontSize="20"                                 
+                           FontFamily="SansBold"/>
+
+                </StackLayout>
+
+                <!--Contenedor del Input Servicio-->
                 <Frame BackgroundColor="Transparent" 
-                     BorderColor="Black" 
-                     Padding="0"  
-                     CornerRadius="7" 
-                     WidthRequest="340"
-                     
-                     HorizontalOptions="FillAndExpand">
-                    <!-- ENTRY NOMBRE -->
-                    <Entry x:Name="EntryPassword"
-                                 Margin="25,5"
-                                    Text="{Binding Password,Mode=TwoWay}"
-                                    Keyboard="Plain"
-                                    IsPassword="True"
-                               FontFamily="SansLight"
-                                    FontSize="20"
-                                    PlaceholderColor="Gray" 
-                                    TextColor="Black" 
-                                    HorizontalOptions="FillAndExpand" />
-                   
+                       BorderColor="Black"                             
+                       Padding="0"
+                       CornerRadius="10" 
+                       WidthRequest="340">
+
+                    <Picker x:Name="PiPuesto"
+                            Title="Seleccione Puesto"
+                            FontSize="20"
+                            ItemsSource="{Binding ListServices}"
+                            ItemDisplayBinding="{Binding NombreServicio}"
+                            SelectedIndexChanged="PiPuesto_SelectedIndexChanged"
+                            FontFamily="SansLight"
+                            Margin="20,5"
+                            HorizontalOptions="FillAndExpand" />
                 </Frame>
-                
+
             </StackLayout>
             </ScrollView>
         
-    </StackLayout>
-        <Grid HeightRequest="80">
+        <Grid Margin="10,0.5" 
+            HeightRequest="60">
             <Button Text="Guardar"                     
                     Command="{Binding SendVerifyCommand}"
                     BackgroundColor="#01ADBA"
@@ -325,7 +249,6 @@
                     Grid.Column="0"/>
 
             <Button Text="Limpiar" 
-                    x:Name="btnLimpiar"
                     Command="{Binding CancelRegisterCommand}"
                     BackgroundColor="#E3E4E5"
                     TextColor="Black"
