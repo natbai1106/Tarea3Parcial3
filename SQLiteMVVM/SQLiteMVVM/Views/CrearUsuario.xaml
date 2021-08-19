@@ -170,9 +170,7 @@
                                     PlaceholderColor="Gray" 
                                     TextColor="black" 
                                     HorizontalOptions="FillAndExpand" >
-                        <Entry.Behaviors>
-                            <behavior:EmailValidationBehavior/>
-                        </Entry.Behaviors>
+                      
                     </Entry>
                 </Frame>
 
@@ -242,9 +240,7 @@
                                 PlaceholderColor="Gray" 
                                 TextColor="black" 
                                 HorizontalOptions="FillAndExpand" >
-                        <Entry.Behaviors>                            
-                            <behavior:NumeroValidatorBehavior/>
-                        </Entry.Behaviors>
+                        
                     </Entry>
                 </Frame>
 
