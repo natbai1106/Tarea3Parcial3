@@ -1,6 +1,8 @@
 ﻿using Acr.UserDialogs;
+using SQLiteMVVM.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
@@ -15,11 +17,24 @@ namespace SQLiteMVVM.ViewModels
 
         Page Page;
 
+        List<Puestos> cargo;
         string nombre;
         string apellido;
         int edad;
-        string direccion;    
+        string direccion;
+        Puestos puestoselected;
 
+        public Puestos PuestoSelected 
+        {
+            get => puestoselected; 
+            set => SetProperty(ref puestoselected, value);
+        }
+
+        public List<Puestos> Cargo
+        {
+            get => cargo;
+            set { SetProperty(ref cargo, value); }
+        }
 
         public string Nombre
         {
@@ -44,6 +59,23 @@ namespace SQLiteMVVM.ViewModels
             set { SetProperty(ref direccion, value); }
         }
 
+        public EmpleadoViewModel(Page pag)
+        {
+            Page = pag;
+
+            PuestoSelected = new Puestos();
+
+            Cargar();
+
+            SendVerifyCommand = new Command(OnSaveUserClicked);
+        }
+
+        private async Task Cargar()
+        {
+            Cargo = Puestos.ObtenerCargos().OrderBy(c => c.value).ToList();
+
+        }
+
         //private bool CheckRequires()
         //{
         //    //message = "Oops, verifíca lo siguiente: ";
@@ -61,9 +93,18 @@ namespace SQLiteMVVM.ViewModels
         //    //return respuesta;
         //}       
 
-        public async Task<int> OnSaveUserClicked()
+        public async void OnSaveUserClicked(object obj)
         {
-            return 0;
+
+            if (!string.IsNullOrEmpty(PuestoSelected.value) || !string.IsNullOrEmpty(Nombre) || !string.IsNullOrEmpty(Apellido) || edad==0 || !string.IsNullOrEmpty(Direccion) )
+            {
+                await Page.DisplayAlert("Mensaje", "No deben haber campos vacíos", "Ok");
+            }
+            else
+            {
+                await Page.DisplayAlert("Mensaje", "Felicidades, ahora sigue trabajando", "Ok");
+            }
+
         }
     }
 }

@@ -83,7 +83,7 @@
                     <Entry 
                         Margin="25,5"
                         Keyboard="Plain"
-                        Text="{Binding Name, Mode=TwoWay}"
+                        Text="{Binding Nombre, Mode=TwoWay}"
                         FontFamily="SansLight"
                         FontSize="20"
                         PlaceholderColor="Gray" 
@@ -109,7 +109,7 @@
                             FontFamily="SansBold"/>
                 </StackLayout>
 
-                <!-- ESTILOS DEL ENTRY NOMBRE -->
+                <!-- ESTILOS DEL ENTRY APELLIDO -->
                 <Frame BackgroundColor="Transparent" 
                      BorderColor="Black" 
                      Padding="0"  
@@ -117,11 +117,11 @@
                      WidthRequest="340"
                      
                      HorizontalOptions="FillAndExpand">
-                    <!-- ENTRY NOMBRE -->
+                    <!-- ENTRY APELLIDO -->
                     <Entry 
                         Margin="25,5"
                         Keyboard="Plain"
-                        Text="{Binding Name, Mode=TwoWay}"
+                        Text="{Binding Apellido, Mode=TwoWay}"
                         FontFamily="SansLight"
                         FontSize="20"
                         PlaceholderColor="Gray" 
@@ -129,12 +129,12 @@
                         HorizontalOptions="FillAndExpand"/>
                 </Frame>
 
-                <!-- CAMPO OBLIGATORIO DE ASTERISCO - NOMBRE -->
+                <!-- CAMPO OBLIGATORIO DE ASTERISCO - APELLIDO -->
                 <StackLayout 
                             Orientation="Horizontal"
                             Margin="0,5,0,0">
 
-                    <!-- LABEL DE ASTERISCO - NOMBRE -->
+                    <!-- LABEL DE ASTERISCO - APELLIDO -->
                     <!-- INICIO DEL LABEL ASTERISCO -->
                     <Label Style="{StaticResource Dslabel*}"/>
 
@@ -146,7 +146,7 @@
                             FontFamily="SansBold"/>
                 </StackLayout>
 
-                <!-- ESTILOS DEL ENTRY NOMBRE -->
+                <!-- ESTILOS DEL ENTRY EDAD -->
                 <Frame BackgroundColor="Transparent" 
                      BorderColor="Black" 
                      Padding="0"  
@@ -154,11 +154,11 @@
                      WidthRequest="340"
                      
                      HorizontalOptions="FillAndExpand">
-                    <!-- ENTRY NOMBRE -->
+                    <!-- ENTRY Edad -->
                     <Entry 
                         Margin="25,5"
                         Keyboard="Numeric"
-                        Text="{Binding Name, Mode=TwoWay}"
+                        Text="{Binding Edad, Mode=TwoWay}"
                         FontFamily="SansLight"
                         FontSize="20"
                         PlaceholderColor="Gray" 
@@ -183,7 +183,7 @@
                             FontFamily="SansBold"/>
                 </StackLayout>
 
-                <!-- ESTILOS DEL ENTRY NOMBRE -->
+                <!-- ESTILOS DEL ENTRY DIRECCION -->
                 <Frame BackgroundColor="Transparent" 
                      BorderColor="Black" 
                      Padding="0"  
@@ -191,11 +191,11 @@
                      WidthRequest="340"
                      
                      HorizontalOptions="FillAndExpand">
-                    <!-- ENTRY NOMBRE -->
+                    <!-- ENTRY DIRECCION -->
                     <Entry 
                         Margin="25,5"
                         Keyboard="Plain"
-                        Text="{Binding Name, Mode=TwoWay}"
+                        Text="{Binding Direccion, Mode=TwoWay}"
                         FontFamily="SansLight"
                         FontSize="20"
                         PlaceholderColor="Gray" 
@@ -227,8 +227,9 @@
                     <Picker x:Name="PiPuesto"
                             Title="Seleccione Puesto"
                             FontSize="20"
-                            ItemsSource="{Binding ListServices}"
-                            ItemDisplayBinding="{Binding NombreServicio}"
+                            ItemsSource="{Binding Cargo}"
+                            ItemDisplayBinding="{Binding value }"
+                            SelectedItem="{Binding PuestoSelected, Mode=TwoWay}"
                             SelectedIndexChanged="PiPuesto_SelectedIndexChanged"
                             FontFamily="SansLight"
                             Margin="20,5"

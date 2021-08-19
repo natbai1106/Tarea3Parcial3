@@ -15,17 +15,12 @@ namespace SQLiteMVVM.Views
         public CrearUsuario()
         {
             InitializeComponent();
-            //BindingContext = new UsersViewModel(this);
-            PiPuesto.Items.Add("Cajero");
-            PiPuesto.Items.Add("Computacion");
-            PiPuesto.Items.Add("Auditor");
-            PiPuesto.Items.Add("Gerente");
-            PiPuesto.Items.Add("Supervisor");
+            BindingContext = new EmpleadoViewModel(this);
         }
 
         private void PiPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var name = PiPuesto.Items[PiPuesto.SelectedIndex];
+            //var name = PiPuesto.Items[PiPuesto.SelectedIndex];
 
 
         }
