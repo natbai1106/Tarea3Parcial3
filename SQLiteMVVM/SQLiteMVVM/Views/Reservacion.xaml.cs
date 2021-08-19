@@ -1,6 +1,4 @@
-﻿using SQLiteMVVM.ViewModels;
-using SQLiteMVVM.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,8 +20,8 @@ namespace SQLiteMVVM.Views
 
         private void ListServices_ItemTapped(object sender, ItemTappedEventArgs e)
         {
-            var viewModel = BindingContext as ServicesViewModels;
-            var service = e.Item as Service;
+           // var viewModel = BindingContext as ServicesViewModels;
+            //var service = e.Item as Service;
         }
     }
 }
