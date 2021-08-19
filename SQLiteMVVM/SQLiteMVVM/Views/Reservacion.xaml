@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SQLiteMVVM.Views.Reservacion"
+             Title="Reservación de Servicio"
+             Background="#FDFDFD">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="DsScrollView" TargetType="ScrollView">
+                <Setter Property="VerticalScrollBarVisibility" Value="Never"/>
+                <Setter Property="Margin" Value="20,3"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="Dslabel*" TargetType="Label">
+                <Setter Property="TextColor" Value="Red"/>
+                <Setter Property="FontFamily" Value="SansBold"/>
+                <Setter Property="FontSize" Value="20"/>
+                <Setter Property="Text" Value="*"/>
+            </Style>
+            <Style x:Key="DsButtonFlotante" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Transparent"/>
+                <Setter Property="CornerRadius" Value="50"/>
+                <Setter Property="BorderColor" Value="#01ADBA"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="CornerRadius" Value="40"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="HeightRequest" Value="60"/>
+                <Setter Property="WidthRequest" Value="60"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout >
+        <ScrollView Style="{StaticResource DsScrollView}">
+
+            <!-- Contenedor principal para la tarjeta-->
+            <StackLayout>
+
+                <!--Texto Servicio Adomicilio-->
+                <StackLayout Orientation="Horizontal">
+
+                    <Label TextColor="Black"
+                           Text="Servicio a Domicilio: "
+                           FontSize="20"    
+                           FontFamily="SansBold"/>
+
+                    <Switch x:Name="SwitchMapa"
+                            OnColor="gray"
+                            ThumbColor="#01ADBA"
+                            IsToggled="{Binding IsDelivery}"/>
+
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="0,15">
+
+                    <Label Style="{StaticResource Dslabel*}"/>
+
+                    <Label Text="Automóvil: "
+                           TextColor="Black"
+                           FontSize="20"                                 
+                           FontFamily="SansBold"/>
+
+                </StackLayout>
+
+                <!-- Estilo para el Entry Redondo-->
+                <Frame BackgroundColor="Transparent" 
+                       BorderColor="Black"                             
+                       Padding="0"
+                       CornerRadius="10" 
+                       WidthRequest="0">
+
+                    <!--Contenedor del Input Modelo-->
+                    <Picker x:Name="PiAutoCotizacion"
+                            Title="Seleccione el  Automóvil"
+                            ItemsSource="{Binding ListVehicles}"
+                            ItemDisplayBinding="{Binding NombreVehiculo}"
+                            SelectedItem="{Binding VehicleSelected, Mode=TwoWay}"
+                            FontSize="20"
+                            FontFamily="SansLight"
+                            Margin="25,5"
+                            HorizontalOptions="FillAndExpand"/>
+                </Frame>
+
+                <Grid Margin="0,15">
+
+                    <!--Texto FECHA-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="0"
+                                 Grid.Column="0">
+
+                        <Label Style="{StaticResource Dslabel*}"/>
+
+                        <Label Text="Fecha:  "
+                               FontSize="20" 
+                               TextColor="Black"
+                               FontFamily="SansBold"/>
+
+                    </StackLayout>
+
+                    <!--Contenedor del Input Fecha-->
+                    <Frame BackgroundColor="Transparent" 
+                           BorderColor="Black"                             
+                           Padding="0"
+                           CornerRadius="10" 
+                           WidthRequest="340"
+                           Grid.Row="1"
+                           Grid.Column="0">
+
+                        <DatePicker x:Name="DatapickerFecha" 
+                                    MinimumDate="01/01/1900" 
+                                    MaximumDate="12/31/2100" 
+                                    x:DataType="DatePicker"                                     
+                                    FontSize="20"
+                                    Margin="20,5"
+                                    HorizontalOptions="FillAndExpand"
+                                    FontFamily="RobotoLight"/>
+
+                    </Frame>
+
+                    <!--Texto HORA-->
+                    <StackLayout Orientation="Horizontal"
+                                 Grid.Row="0"
+                                 Grid.Column="1">
+
+                        <Label Style="{StaticResource Dslabel*}"/>
+
+                        <Label Text="Hora:  "
+                               TextColor="black"
+                               FontSize="20"                                 
+                               FontFamily="SansBold"/>
+
+                    </StackLayout>
+
+                    <!--Contenedor del Input HORA-->
+                    <Frame BackgroundColor="Transparent" 
+                           BorderColor="Black"                             
+                           Padding="0"
+                           CornerRadius="10" 
+                           WidthRequest="340"
+                           Grid.Row="1"
+                           Grid.Column="1">
+
+                        <TimePicker Margin="20,5"
+                                    x:Name="TimeHora" 
+                                    FontSize="20"
+                                    HorizontalOptions="FillAndExpand" />
+                    </Frame>
+                </Grid>
+                
+                <!--Texto Servicio-->
+                <StackLayout Margin="0,10" Orientation="Horizontal">
+
+                    <Label Style="{StaticResource Dslabel*}"/>
+
+                    <Label TextColor="Black"
+                           Text="Servicio Auto: "
+                           FontSize="20"                                 
+                           FontFamily="SansBold"/>
+
+                </StackLayout>
+
+                <!--Contenedor del Input Servicio-->
+                <Frame BackgroundColor="Transparent" 
+                       BorderColor="Black"                             
+                       Padding="0"
+                       CornerRadius="10" 
+                       WidthRequest="340">
+
+                    <Picker x:Name="PiSeleccionarCotizacion"
+                            Title="Seleccione Servicio"
+                            FontSize="20"
+                            ItemsSource="{Binding ListServices}"
+                            ItemDisplayBinding="{Binding NombreServicio}"
+                            SelectedItem="{Binding ServiceSelected, Mode=TwoWay}"
+                            FontFamily="SansLight"
+                            Margin="20,5"
+                            HorizontalOptions="FillAndExpand" />
+                </Frame>
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Subtotal en Lps. " FontSize="17" TextColor="Black"/>
+                    <Label Text="{Binding Subtotal}" FontSize="17" TextColor="Black"/>
+                </StackLayout>
+                <Label Text="El total puede estar sujeto a cambios." FontSize="13" TextColor="Orange"/>
+                <ListView x:Name="listViewServices"
+                          ItemsSource="{Binding ListServiceSelected}"
+                          SelectionMode="None"
+                          Margin="5"
+                          HeightRequest="150">
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Margin="20,0,0,0"
+                                             Orientation="Horizontal"
+                                             HorizontalOptions="FillAndExpand"
+                                             x:Name="Item">
+                                    <Label Text="{Binding NombreServicio}"
+                                           VerticalTextAlignment="Center"/>
+
+                                    <Label HorizontalOptions="Center" Margin="20,10">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    Text="Lps. " 
+                                                      FontAttributes="Bold"
+                                                      FontSize="15" 
+							                          FontFamily="SansRegular"/>
+                                                <Span Text="{Binding Precio}" FontAttributes="Bold" FontSize="15"/>
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Button Margin="12,0"
+                                            ImageSource="delete.png"
+                                            HorizontalOptions="End"
+                                            BackgroundColor="WhiteSmoke"
+                                            BindingContext="{Binding Source={x:Reference listViewServices}, Path=BindingContext}" 
+                                            Command="{Binding DeleteServiceCommand}" 
+                                            CommandParameter="{Binding Source={x:Reference Item}, Path=BindingContext}" /> 
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </StackLayout>
+        </ScrollView>
+        <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="-1">
+            <Button Text="Realizar" 
+                    x:Name="btnRealizar"
+                    Command="{Binding SaveCommand}"
+                    BackgroundColor="#01ADBA"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand" />
+
+            <Button Text="Limpiar" 
+                    x:Name="btnLimpiarAutos"
+                    Command="{Binding CancelCommand}"
+                    BackgroundColor="#E3E4E5"
+                    TextColor="Black"
+                    FontAttributes="Bold"
+                    HorizontalOptions="FillAndExpand"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
