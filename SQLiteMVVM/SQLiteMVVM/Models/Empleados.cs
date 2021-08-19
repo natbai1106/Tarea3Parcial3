@@ -19,7 +19,7 @@ namespace SQLiteMVVM.Models
         public string Apellido { get; set; }
 
         [MaxLength(100)]
-        public int Edad { get; set; }
+        public string Edad { get; set; }
 
         [MaxLength(100)]
         public string Direccion { get; set; }

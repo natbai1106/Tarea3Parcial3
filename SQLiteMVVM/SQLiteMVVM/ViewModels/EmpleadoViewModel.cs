@@ -1,4 +1,5 @@
 ﻿using Acr.UserDialogs;
+using SQLite;
 using SQLiteMVVM.Models;
 using System;
 using System.Collections.Generic;
@@ -96,13 +97,32 @@ namespace SQLiteMVVM.ViewModels
         public async void OnSaveUserClicked(object obj)
         {
 
-            if (!string.IsNullOrEmpty(PuestoSelected.value) || !string.IsNullOrEmpty(Nombre) || !string.IsNullOrEmpty(Apellido) || edad==0 || !string.IsNullOrEmpty(Direccion) )
+            if (string.IsNullOrEmpty(PuestoSelected.value) || string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido) || edad==0 || string.IsNullOrEmpty(Direccion) )
             {
                 await Page.DisplayAlert("Mensaje", "No deben haber campos vacíos", "Ok");
             }
             else
             {
-                await Page.DisplayAlert("Mensaje", "Felicidades, ahora sigue trabajando", "Ok");
+                var empleado = new Empleado
+                {
+                    Nombre = Nombre,
+                    Apellido = Apellido,
+                    Edad = Convert.ToString(Edad),
+                    Direccion = Direccion,
+                    Puesto = PuestoSelected.value
+                };
+
+                using (SQLiteConnection conexion = new SQLiteConnection(App.UbicacionDB))
+                {
+                    int resultado = App.InstanciaBD.InsertEmpleado(empleado);
+
+                    
+
+                    if (resultado > 0)
+                        DisplayAlert("Aviso", "Adicionado", "Ok");
+                    else
+                        DisplayAlert("Aviso", "Error", "Ok");
+                }
             }
 
         }
