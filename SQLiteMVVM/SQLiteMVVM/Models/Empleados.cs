@@ -5,8 +5,7 @@ using System.Text;
 
 namespace SQLiteMVVM.Models
 {
-    public class Empleados
-    {
+   
         public class Empleado
         {
             [PrimaryKey, AutoIncrement]
@@ -31,5 +30,5 @@ namespace SQLiteMVVM.Models
             [ForeignKey(typeof(Empleado))]
             public int EmpleadoId { get; set; }
         }
-    }
+    
 }
