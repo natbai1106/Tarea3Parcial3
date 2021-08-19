@@ -2,8 +2,6 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SQLiteMVVM.Views.CrearUsuario"
-             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
-             xmlns:ffTrans="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
              Background="#FDFDFD"
              Title="Creación de Usuario">
 
@@ -70,7 +68,7 @@
                             VerticalOptions="FillAndExpand"
                             Margin="1">
 
-                            <ff:CachedImage x:Name           = "Logo" 
+                            <!--<ff:CachedImage x:Name           = "Logo" 
                                 Source               = "{Binding UrlPhoto}"
                                 LoadingPlaceholder   = "Logo"
                                 ErrorPlaceholder     = "Error"
@@ -82,7 +80,7 @@
                             <ff:CachedImage.Transformations>
                                 <ffTrans:CircleTransformation />
                             </ff:CachedImage.Transformations>
-                        </ff:CachedImage>
+                        </ff:CachedImage>-->
 
                     </Frame>
 
@@ -170,9 +168,7 @@
                                     PlaceholderColor="Gray" 
                                     TextColor="black" 
                                     HorizontalOptions="FillAndExpand" >
-                        <Entry.Behaviors>
-                            <behavior:EmailValidationBehavior/>
-                        </Entry.Behaviors>
+                    
                     </Entry>
                 </Frame>
 
@@ -242,9 +238,7 @@
                                 PlaceholderColor="Gray" 
                                 TextColor="black" 
                                 HorizontalOptions="FillAndExpand" >
-                        <Entry.Behaviors>                            
-                            <behavior:NumeroValidatorBehavior/>
-                        </Entry.Behaviors>
+                     
                     </Entry>
                 </Frame>
 
@@ -314,15 +308,9 @@
                                     PlaceholderColor="Gray" 
                                     TextColor="Black" 
                                     HorizontalOptions="FillAndExpand" />
-                    <!--<Entry.Behaviors>
-                            <behavior:MaxLengthValidatorBehavior/>
-                        </Entry.Behaviors>
-                    </Entry>-->
+                   
                 </Frame>
-                <!--<StackLayout Orientation="Horizontal" Spacing="6">
-                    <CheckBox x:Name="CheckBoxAgree" />
-                    <Label Text="Los datos ingresados, son correctos?"  HorizontalOptions="CenterAndExpand"  FontSize="20"/>
-                </StackLayout>-->
+                
             </StackLayout>
             </ScrollView>
         

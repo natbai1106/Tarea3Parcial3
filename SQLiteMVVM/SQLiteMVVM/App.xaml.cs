@@ -1,6 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLiteMVVM.Views;
 
 namespace SQLiteMVVM
 {
@@ -9,8 +10,7 @@ namespace SQLiteMVVM
         public App()
         {
             InitializeComponent();
-
-            MainPage = new MainPage();
+            MainPage = new NavigationPage(new CrearUsuario());
         }
 
         protected override void OnStart()

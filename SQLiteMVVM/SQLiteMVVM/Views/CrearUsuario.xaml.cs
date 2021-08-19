@@ -1,7 +1,4 @@
-﻿using Plugin.Media;
-using SQLiteMVVM.Models;
-using SQLiteMVVM.Utils;
-using SQLiteMVVM.ViewModels;
+﻿using SQLiteMVVM.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
